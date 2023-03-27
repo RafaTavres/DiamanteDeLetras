@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace DiamanteDeLetras.ConsoleApp
@@ -16,23 +18,20 @@ namespace DiamanteDeLetras.ConsoleApp
             while (respostaSAIR.ToUpper() != SAIR)
             {
                 Menu();
-
-                if (eNumero)
+                if (eNumero){
                     MensagemDeErro("variavel nao é número...");
-                 
-                PraCima();              
-                PraBaixo();
+                    continue;
+                }
+                EscreveDiamantePraCima();              
+                EscreveDiamantePrabaixo();
                 ResetaValor();
-
                 Console.WriteLine("Sair S/N");
                 respostaSAIR = Console.ReadLine();
-
             }
             Console.ReadLine();
-
         }
 
-        private static void PraBaixo()
+        private static void EscreveDiamantePrabaixo()
         {
             for (int i = 0; linhaIncial > 0; i++)
             {
@@ -61,7 +60,7 @@ namespace DiamanteDeLetras.ConsoleApp
             }
         }
 
-        private static void PraCima()
+        private static void EscreveDiamantePraCima()
         {
             for (int i = 1; tamanhoFinal > 0; i++)
             {
